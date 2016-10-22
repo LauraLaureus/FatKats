@@ -6,6 +6,7 @@ public class LifeBar : MonoBehaviour {
 
 
 	public Image img;
+
 	public float percentaje;
 	public float scale;
 
@@ -28,6 +29,7 @@ public class LifeBar : MonoBehaviour {
 		percentaje -= Mathf.Pow (x, 2);
 
 		img.fillAmount = percentaje;
+	
 	}
 
 }
