@@ -17,6 +17,11 @@ public class Cat : MonoBehaviour {
         }
     }
 
+    public void Playing(float time) {
+        GetComponent<Rigidbody2D>().isKinematic = true;
+        Invoke("StopPlaying", time);
+    }
+
     public void StartDash(float dashTime) {
         gameObject.layer = 0;
         GetComponent<CircleCollider2D>().sharedMaterial = catPhysicMaterial;
@@ -27,5 +32,9 @@ public class Cat : MonoBehaviour {
         gameObject.layer = 8;
         GetComponent<CircleCollider2D>().sharedMaterial = null;
         inputManager.StopDash(gameObject.name);
+    }
+
+    void StopPlaying() {
+        GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }

@@ -5,8 +5,11 @@ using System.Linq;
 
 public class SpawnAlgorithm : MonoBehaviour {
 	//TODO: Pensar en una condición de spawn (cada 2 segundos, etc...)
-	public int TiempoSpawn = 2;
-	public int tiempoInicial;
+	public float TiempoSpawn = 2;
+	public float TiempoCambioSpawn = 10;
+	private float tiempoInicial;
+	private float tiempoInicialCambioSpawn;
+
 	private List <Vector2> ListaPuntos;
 	private List <Vector2> PuntosPersonajes;
 	// TODO: Plantear crear más de un alimento a la vez
@@ -14,29 +17,34 @@ public class SpawnAlgorithm : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		tiempoInicial = System.DateTime.Now.Second;
+		tiempoInicial = Time.timeSinceLevelLoad;
+		tiempoInicialCambioSpawn = Time.timeSinceLevelLoad;
+	}
 
+	// Inicializa las listas de puntos
+	private void InicializarListas() {
 		// Inicializamos los puntos de los personajes
 		GameObject[]puntos = GameObject.FindGameObjectsWithTag("Player");
 		PuntosPersonajes = new List<Vector2> ();
 		foreach (GameObject punto in puntos) {
-			if (GameObject.FindGameObjectsWithTag ("Comida")
-				.Where (x => x.transform.position == punto.transform.position).ToList().Count <= 0) {
-				PuntosPersonajes.Add (punto.transform.position);
-			}
+			PuntosPersonajes.Add (punto.transform.position);
 		}
 
 		// Inicializamos los puntos de spawn
 		puntos = GameObject.FindGameObjectsWithTag ("Spawn");
 		ListaPuntos = new List<Vector2> ();
 		foreach (GameObject punto in puntos) {
-			ListaPuntos.Add (punto.transform.position);
+			if (GameObject.FindGameObjectsWithTag ("Comida")
+				.Where (x => x.transform.position == punto.transform.position).ToList ().Count <= 0) {
+				ListaPuntos.Add (punto.transform.position);
+			}
 		}
 	}
 
 	// Método que devuelve el punto en el que realizar el spawn
 	private Vector2 GetPuntoSpawn() {
 		Dictionary<Vector2, float> diccionarioPuntos = new Dictionary<Vector2, float>();
+
 		foreach (Vector2 punto in ListaPuntos) {
 			diccionarioPuntos.Add (
 				punto,
@@ -57,17 +65,25 @@ public class SpawnAlgorithm : MonoBehaviour {
 
 	// Método que spawnea un alimento
 	private void Spawn() {
-		GameObject.Instantiate (
+		InicializarListas ();
+
+		GameObject comida = (GameObject) GameObject.Instantiate (
 			alimento,
-			GameObject.FindGameObjectsWithTag("Spawn").Where(x => ((Vector2)x.transform.position) == GetPuntoSpawn()).First().transform
+			GameObject.FindGameObjectsWithTag("Spawn").Where(x => ((Vector2)x.transform.position) == GetPuntoSpawn()).First().transform.position,
+			Quaternion.identity
 		);
+		comida.transform.parent = GameObject.Find ("Food").transform;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (tiempoInicial - System.DateTime.Now.Second >= TiempoSpawn) {
+		if (Mathf.Abs(Time.timeSinceLevelLoad - tiempoInicialCambioSpawn) >= TiempoCambioSpawn) {
+			TiempoSpawn += (2 / Mathf.PI) * Mathf.Atan (Time.timeSinceLevelLoad / 10);
+			tiempoInicialCambioSpawn = Time.timeSinceLevelLoad;
+		}
+		if (Mathf.Abs(Time.timeSinceLevelLoad - tiempoInicial) >= TiempoSpawn) {
 			Spawn ();
-			tiempoInicial = System.DateTime.Now.Second;
+			tiempoInicial = Time.timeSinceLevelLoad;
 		}
 	}
 }

@@ -29,6 +29,7 @@ public class InputManager : MonoBehaviour {
     private bool pastelitoInPlatform;
 
     void Start() {
+        Time.timeScale = 1;
         luffyLeft = false;
         luffyRight = false;
         luffyJump = false;
