@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Food : MonoBehaviour {
 
+	void OnTriggerEnter2D (Collider2D col) {
+		
+	}
+
 	// Use this for initialization
 	void Start () {
 	

@@ -7,7 +7,7 @@ public class OnWinningShow : MonoBehaviour {
 	public string text;
 	public GameObject winningUI; 
 	public void Show(){
-		winningUI.SetActive(true);x
+		winningUI.SetActive(true);
 		GameObject.Find ("WinnerText").GetComponent<Text>().text += text;
 	}
 }

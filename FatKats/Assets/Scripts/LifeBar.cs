@@ -9,6 +9,8 @@ public class LifeBar : MonoBehaviour {
 	public float percentaje;
 	public float scale;
 
+	private bool wrote = false;
+
 	void Start () {
 		img = this.GetComponent<Image> ();
 		percentaje = 1f;
@@ -16,9 +18,10 @@ public class LifeBar : MonoBehaviour {
 
 	void LateUpdate(){
 
-		if (percentaje <= 0) {
+		if (percentaje <= 0 && !wrote) {
 			this.GetComponent<OnWinningShow> ().Show ();
 			Time.timeScale = 0;
+			wrote = true;
 		}
 
 		float x = Time.timeSinceLevelLoad/scale; 
