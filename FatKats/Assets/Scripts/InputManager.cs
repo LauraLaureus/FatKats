@@ -11,10 +11,14 @@ public class InputManager : MonoBehaviour {
     private bool luffyLeft;
     private bool luffyRight;
     private bool luffyJump;
+    private bool luffyDash;
     private bool pastelitoLeft;
     private bool pastelitoRight;
     private bool pastelitoJump;
+    private bool pastelitoDash;
     public float movementImpulse;
+    public float dashImpulse;
+    public float dashTime;
 
     // Variables para saltos personajes
     public float maxJumpImpulse = 2.0f;
@@ -46,10 +50,18 @@ public class InputManager : MonoBehaviour {
         luffyLeft = (Input.GetKey(KeyCode.A));
         luffyRight = (Input.GetKey(KeyCode.D));
         luffyJump = (Input.GetKey(KeyCode.W));
+        if ((Input.GetKeyDown(KeyCode.S)) && (!luffyDash)) {
+            luffyDash = true;
+            luffy.gameObject.GetComponent<Cat>().StartDash(dashTime);
+        }
         // Inputs Pastelito
         pastelitoLeft = (Input.GetKey(KeyCode.LeftArrow));
         pastelitoRight = (Input.GetKey(KeyCode.RightArrow));
         pastelitoJump = (Input.GetKey(KeyCode.UpArrow));
+        if ((Input.GetKeyDown(KeyCode.DownArrow)) && (!pastelitoDash)) {
+            pastelitoDash = true;
+            pastelito.gameObject.GetComponent<Cat>().StartDash(dashTime);
+        }
     }
 
     public void CatInPlatform(string cat) {
@@ -81,7 +93,9 @@ public class InputManager : MonoBehaviour {
             luffyJumpImpulse += 1.0f;
         }
         float impulse = 1;
-        if (luffy.velocity.y == 0.0f) {
+        if (luffyDash) {
+            impulse = dashImpulse;
+        } else if (luffy.velocity.y == 0.0f) {
             impulse = movementImpulse;
         }
         if (luffyLeft) {
@@ -103,7 +117,9 @@ public class InputManager : MonoBehaviour {
             pastelitoJumpImpulse += 1.0f;
         }
         float impulse = 1;
-        if(pastelito.velocity.y == 0.0f) {
+        if (pastelitoDash) {
+            impulse = dashImpulse;
+        } else if (pastelito.velocity.y == 0.0f) {
             impulse = movementImpulse;
         }
         if (pastelitoLeft) {
@@ -112,5 +128,13 @@ public class InputManager : MonoBehaviour {
             force += impulse * Vector2.right;
         }
         pastelito.AddForce(FUERZA_ELEMENTAL * force);
+    }
+
+    public void StopDash(string cat) {
+        if (cat.Equals("Luffy")) {
+            luffyDash = false;
+        } else if (cat.Equals("Pastelito")) {
+            pastelitoDash = false;
+        }
     }
 }
