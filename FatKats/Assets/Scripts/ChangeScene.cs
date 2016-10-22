@@ -4,12 +4,12 @@ using System.Collections;
 
 public class ChangeScene : MonoBehaviour {
 
-	public void changeScene(string scene){
-		if (scene.Equals ("Quit"))
-			Application.Quit ();
-		else
-			SceneManager.LoadScene (scene);
-	}
+    public void changeScene(string scene) {
+        if (scene.Equals("Quit"))
+            Application.Quit();
+        else
+            SceneManager.LoadScene(scene);
+    }
 
 
 }
