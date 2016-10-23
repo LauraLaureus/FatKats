@@ -29,5 +29,7 @@ public class WoolEnemy : MonoBehaviour {
                 rb.AddForce(forceSpeed * Vector2.right);
             }
         }
+        // Animación de movimiento
+        transform.Rotate(0, 0, rb.velocity.x);
     }
 }
