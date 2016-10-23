@@ -69,7 +69,7 @@ public class SpawnAlgorithm : MonoBehaviour {
 
 		GameObject comida = (GameObject) GameObject.Instantiate (
 			alimento,
-			GameObject.FindGameObjectsWithTag("Spawn").Where(x => ((Vector2)x.transform.position) == GetPuntoSpawn()).First().transform.position,
+			GetPuntoSpawn(),
 			Quaternion.identity
 		);
 		comida.transform.parent = GameObject.Find ("Food").transform;
