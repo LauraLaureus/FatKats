@@ -22,9 +22,9 @@ public class Food : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Asintótica a 0.8 aprox
-		ValorNutritivo = (1.8f / Mathf.PI) * Mathf.Atan(Time.timeSinceLevelLoad / 50f);
+		// ValorNutritivo = (1.8f / Mathf.PI) * Mathf.Atan(Time.timeSinceLevelLoad / 50f);
 
 		// Asintótica a 1
-		// ValorNutritivo = (2f / Mathf.PI) * Mathf.Atan(Time.timeSinceLevelLoad / 50f);
+		ValorNutritivo = (2f / Mathf.PI) * Mathf.Atan(Time.timeSinceLevelLoad / 25f);
 	}
 }

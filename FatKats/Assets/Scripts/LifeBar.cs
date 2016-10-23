@@ -25,9 +25,9 @@ public class LifeBar : MonoBehaviour {
 		}
 
 		float x = Time.timeSinceLevelLoad/scale; 
-		percentaje -= Mathf.Pow (x, 2);
+		percentaje -= Mathf.Pow (x, 1.8f);
 
-		img.fillAmount = percentaje;
+        img.fillAmount = Mathf.Clamp(percentaje, 0.0f, 1.0f);
 	
 	}
 
