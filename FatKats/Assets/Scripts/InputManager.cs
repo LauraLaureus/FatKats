@@ -8,6 +8,8 @@ public class InputManager : MonoBehaviour {
     public Rigidbody2D pastelito;
 
     // Variables con movimiento de los personajes
+    public bool luffyLocked;
+    public bool pastelitoLocked;
     private bool luffyLeft;
     private bool luffyRight;
     private bool luffyJump;
@@ -41,8 +43,12 @@ public class InputManager : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        MovimientoLuffy();
-        MovimientoPastelito();
+        if (!luffyLocked) {
+            MovimientoLuffy();
+        }
+        if (!pastelitoLocked) {
+            MovimientoPastelito();
+        }
     }
 
     // Update is called once per frame

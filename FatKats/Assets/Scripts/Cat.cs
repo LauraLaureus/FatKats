@@ -18,7 +18,11 @@ public class Cat : MonoBehaviour {
     }
 
     public void Playing(float time) {
-        GetComponent<Rigidbody2D>().isKinematic = true;
+        if (gameObject.name.Equals("Luffy")) {
+            inputManager.luffyLocked = true;
+        } else {
+            inputManager.pastelitoLocked = true;
+        }
         Invoke("StopPlaying", time);
     }
 
@@ -35,6 +39,10 @@ public class Cat : MonoBehaviour {
     }
 
     void StopPlaying() {
-        GetComponent<Rigidbody2D>().isKinematic = false;
+        if (gameObject.name.Equals("Luffy")) {
+            inputManager.luffyLocked = false;
+        } else {
+            inputManager.pastelitoLocked = false;
+        }
     }
 }
