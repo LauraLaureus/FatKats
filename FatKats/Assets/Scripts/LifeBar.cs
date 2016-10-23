@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class LifeBar : MonoBehaviour {
 
-
 	public Image img;
 
 	public float percentaje;
