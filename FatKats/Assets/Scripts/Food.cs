@@ -6,6 +6,7 @@ public class Food : MonoBehaviour {
 	public float ValorNutritivo = 0.1f;
 	void OnTriggerEnter2D (Collider2D col) {
 		if(col.tag == "Player") {
+            AudioManager.PlayNamNam();
 			switch(col.name) {
 			case "Luffy":
 				GameObject.Find ("LifeBar 1").GetComponent<LifeBar> ().percentaje += ValorNutritivo;
