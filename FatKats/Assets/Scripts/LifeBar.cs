@@ -20,7 +20,8 @@ public class LifeBar : MonoBehaviour {
 	void LateUpdate(){
 
 		if (percentaje <= 0 && !wrote) {
-			this.GetComponent<OnWinningShow> ().Show ();
+			if (this.GetComponent<OnWinningShow> () != null)
+				this.GetComponent<OnWinningShow> ().Show ();
 			Time.timeScale = 0;
 			wrote = true;
 		}

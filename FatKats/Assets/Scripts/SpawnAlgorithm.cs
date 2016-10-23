@@ -67,7 +67,11 @@ public class SpawnAlgorithm : MonoBehaviour {
 		InicializarListas ();
 		GameObject comida = (GameObject) GameObject.Instantiate (
 			alimento,
+<<<<<<< HEAD
 			GetPuntoSpawn (),
+=======
+			GetPuntoSpawn(),
+>>>>>>> 184e66af7d58af1a9c7d3a7c4dce6de582d66eec
 			Quaternion.identity
 		);
 		comida.transform.parent = GameObject.Find ("Food").transform;

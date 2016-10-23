@@ -45,15 +45,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
      <Compile Include="Assets\AudioManager.cs" />
+=======
+     <Compile Include="Assets\Scripts\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\ButtonTransition.cs" />
+>>>>>>> 184e66af7d58af1a9c7d3a7c4dce6de582d66eec
      <Compile Include="Assets\Scripts\Cat.cs" />
      <Compile Include="Assets\Scripts\ChangeScene.cs" />
+     <Compile Include="Assets\Scripts\DrawDetector.cs" />
      <Compile Include="Assets\Scripts\Food.cs" />
      <Compile Include="Assets\Scripts\InputManager.cs" />
      <Compile Include="Assets\Scripts\LifeBar.cs" />
      <Compile Include="Assets\Scripts\OnWinningShow.cs" />
      <Compile Include="Assets\Scripts\SpawnAlgorithm.cs" />
+<<<<<<< HEAD
      <Compile Include="Assets\WoolEnemy.cs" />
+=======
+     <Compile Include="Assets\Scripts\WoolEnemy.cs" />
+     <Compile Include="Assets\Scripts\WoolSpawner.cs" />
+>>>>>>> 184e66af7d58af1a9c7d3a7c4dce6de582d66eec
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

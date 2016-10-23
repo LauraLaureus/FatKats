@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/InGameAnimaciones.unity
+=======
+- path: Assets/Scenes/menu.unity
+>>>>>>> 184e66af7d58af1a9c7d3a7c4dce6de582d66eec
   isLoaded: 1
   isActive: 1
