@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour {
             inputManager.CatInPlatform(gameObject.name);
         } else if ((col.gameObject.tag.Equals("Player")) && (gameObject.layer == 0)) {
             iTween.ShakePosition(Camera.main.gameObject, 0.1f * Vector3.one, 1);
+            GetComponent<AudioSource>().Play();
         }
     }
 
