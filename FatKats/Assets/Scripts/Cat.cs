@@ -8,6 +8,8 @@ public class Cat : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col) {
         if (col.gameObject.tag.Equals("Plataforma")) {
             inputManager.CatInPlatform(gameObject.name);
+        } else if ((col.gameObject.tag.Equals("Player")) && (gameObject.layer == 0)) {
+            iTween.ShakePosition(Camera.main.gameObject, 0.1f * Vector3.one, 1);
         }
     }
 
@@ -29,7 +31,7 @@ public class Cat : MonoBehaviour {
     public void StartDash(float dashTime) {
         gameObject.layer = 0;
         GetComponent<CircleCollider2D>().sharedMaterial = catPhysicMaterial;
-        Invoke("StopDash",dashTime);
+        Invoke("StopDash", dashTime);
     }
 
     void StopDash() {
