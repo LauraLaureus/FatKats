@@ -8,6 +8,29 @@ public class WoolEnemy : MonoBehaviour {
     private Rigidbody2D rb;
 
     void Start() {
+        // Elección color aleatorio
+        Color c = Color.blue;
+        switch (Random.Range(0, 7)) {
+            case 0:
+                c = Color.cyan;
+                break;
+            case 1:
+                c = Color.green;
+                break;
+            case 2:
+                c = Color.grey;
+                break;
+            case 3:
+                c = Color.magenta;
+                break;
+            case 4:
+                c = Color.red;
+                break;
+            case 5:
+                c = Color.yellow;
+                break;
+        }
+        GetComponent<SpriteRenderer>().color = c;
         rb = GetComponent<Rigidbody2D>();
     }
 
