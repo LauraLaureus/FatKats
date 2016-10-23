@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class LifeBar : MonoBehaviour {
@@ -9,7 +8,6 @@ public class LifeBar : MonoBehaviour {
 
 	public float percentaje;
 	public float scale;
-
 	private bool wrote = false;
 
 	void Start () {
@@ -17,11 +15,12 @@ public class LifeBar : MonoBehaviour {
 		percentaje = 1f;
 	}
 
-	void LateUpdate(){
-
+	void LateUpdate() {
+		
 		if (percentaje <= 0 && !wrote) {
-			if (this.GetComponent<OnWinningShow> () != null)
+			if (this.GetComponent<OnWinningShow> () != null) {
 				this.GetComponent<OnWinningShow> ().Show ();
+			}
 			Time.timeScale = 0;
 			wrote = true;
 		}
