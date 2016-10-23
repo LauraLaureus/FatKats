@@ -119,6 +119,7 @@ public class InputManager : MonoBehaviour {
     void MovimientoPastelito() {
         Vector2 force = new Vector2();
         if (pastelitoJump) {
+			pastelito.GetComponent <Animator>().SetBool ("Jump", true);
             if ((pastelitoJumpImpulse == 0.0f) && (pastelitoInPlatform)) {
                 force += initialImpulse * Vector2.up;
             } else if ((pastelitoJumpImpulse < maxJumpImpulse) && (pastelito.velocity.y > 0.0f)) {
@@ -134,8 +135,14 @@ public class InputManager : MonoBehaviour {
         }
         if (pastelitoLeft) {
             force += impulse * Vector2.left;
+			if (pastelito.GetComponent <SpriteRenderer> ().flipX) {
+				pastelito.GetComponent <SpriteRenderer> ().flipX = false;
+			}
         } else if (pastelitoRight) {
             force += impulse * Vector2.right;
+			if (!pastelito.GetComponent <SpriteRenderer> ().flipX) {
+				pastelito.GetComponent <SpriteRenderer> ().flipX = true;
+			}
         }
         pastelito.AddForce(FUERZA_ELEMENTAL * force);
     }
