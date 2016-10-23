@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class InputManager : MonoBehaviour {
     public float FUERZA_ELEMENTAL = 12.0f;
@@ -73,6 +72,8 @@ public class InputManager : MonoBehaviour {
             pastelitoJumpImpulse = 0.0f;
             pastelitoInPlatform = true;
         }
+		// Modificamos animación
+		GameObject.Find ("GameScene/" + cat).GetComponent <Animator>().SetBool ("Jump", false);
     }
 
     public void CatOutOfPlatform(string cat) {
@@ -86,6 +87,8 @@ public class InputManager : MonoBehaviour {
     void MovimientoLuffy() {
         Vector2 force = new Vector2();
         if (luffyJump) {
+			// Modificamos animación
+			luffy.GetComponent <Animator>().SetBool ("Jump", true);
             if ((luffyJumpImpulse == 0.0f) && (luffyInPlatform)) {
                 force += initialImpulse * Vector2.up;
             } else if ((luffyJumpImpulse < maxJumpImpulse) && (luffy.velocity.y > 0.0f)) {
@@ -100,8 +103,14 @@ public class InputManager : MonoBehaviour {
             impulse = movementImpulse;
         }
         if (luffyLeft) {
+			if (luffy.GetComponent <SpriteRenderer> ().flipX) {
+				luffy.GetComponent <SpriteRenderer> ().flipX = false;
+			}
             force += impulse * Vector2.left;
         } else if (luffyRight) {
+			if (!luffy.GetComponent <SpriteRenderer> ().flipX) {
+				luffy.GetComponent <SpriteRenderer> ().flipX = true;
+			}
             force += impulse * Vector2.right;
         }
         luffy.AddForce(FUERZA_ELEMENTAL * force);

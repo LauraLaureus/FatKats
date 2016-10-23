@@ -1,0 +1,51 @@
+Initialize engine version: 5.4.2f1 (94e3a60ee258)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     880 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.082 seconds
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Lenovo\Documents\GitHub\FatKats\FatKatsGame_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.083099 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 8.597784 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 333.
+Total: 0.713010 ms (FindLiveObjects: 0.030790 ms CreateObjectMapping: 0.029582 ms MarkObjects: 0.268058 ms  DeleteObjects: 0.381560 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.772564 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 333.
+Total: 0.727500 ms (FindLiveObjects: 0.059165 ms CreateObjectMapping: 0.059165 ms MarkObjects: 0.596489 ms  DeleteObjects: 0.010867 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.416145 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 333.
+Total: 0.902583 ms (FindLiveObjects: 0.128595 ms CreateObjectMapping: 0.138255 ms MarkObjects: 0.623657 ms  DeleteObjects: 0.009659 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.805985 ms
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 202.
+Total: 0.741989 ms (FindLiveObjects: 0.020526 ms CreateObjectMapping: 0.017508 ms MarkObjects: 0.277717 ms  DeleteObjects: 0.425632 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 197c -> priority: 1 

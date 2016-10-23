@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 public class SpawnAlgorithm : MonoBehaviour {
-	//TODO: Pensar en una condición de spawn (cada 2 segundos, etc...)
+
 	public float TiempoSpawn = 2;
 	public float TiempoCambioSpawn = 10;
 	private float tiempoInicial;
@@ -66,21 +65,25 @@ public class SpawnAlgorithm : MonoBehaviour {
 	// Método que spawnea un alimento
 	private void Spawn() {
 		InicializarListas ();
-
 		GameObject comida = (GameObject) GameObject.Instantiate (
 			alimento,
-			GameObject.FindGameObjectsWithTag("Spawn").Where(x => ((Vector2)x.transform.position) == GetPuntoSpawn()).First().transform.position,
+			GetPuntoSpawn (),
 			Quaternion.identity
 		);
 		comida.transform.parent = GameObject.Find ("Food").transform;
 	}
 
-	// Update is called once per frame
-	void Update () {
+	// Método que cambia el Tiempo de Spawn
+	private void CambiarTiempoSpawn() {
 		if (Mathf.Abs(Time.timeSinceLevelLoad - tiempoInicialCambioSpawn) >= TiempoCambioSpawn) {
 			TiempoSpawn += (2 / Mathf.PI) * Mathf.Atan (Time.timeSinceLevelLoad / 10);
 			tiempoInicialCambioSpawn = Time.timeSinceLevelLoad;
 		}
+	}
+
+	// Update is called once per frame
+	void Update () {
+		CambiarTiempoSpawn ();
 		if (Mathf.Abs(Time.timeSinceLevelLoad - tiempoInicial) >= TiempoSpawn) {
 			Spawn ();
 			tiempoInicial = Time.timeSinceLevelLoad;

@@ -24,13 +24,13 @@ public class Cat : MonoBehaviour {
 
     public void StartDash(float dashTime) {
         gameObject.layer = 0;
-        GetComponent<CircleCollider2D>().sharedMaterial = catPhysicMaterial;
+		GetComponent<BoxCollider2D>().sharedMaterial = catPhysicMaterial;
         Invoke("StopDash",dashTime);
     }
 
     void StopDash() {
         gameObject.layer = 8;
-        GetComponent<CircleCollider2D>().sharedMaterial = null;
+		GetComponent<BoxCollider2D>().sharedMaterial = null;
         inputManager.StopDash(gameObject.name);
     }
 
