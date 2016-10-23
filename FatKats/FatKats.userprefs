@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Assets/Scripts/SpawnAlgorithm.cs" Line="73" Column="41" />
       <File FileName="Assets/Scripts/InputManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/FoodSpriteSelector.cs" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/FoodSpriteSelector.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

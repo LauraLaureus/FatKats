@@ -66,7 +66,7 @@ public class SpawnAlgorithm : MonoBehaviour {
 	private void Spawn() {
 		InicializarListas ();
 		GameObject comida = (GameObject) GameObject.Instantiate (
-			alimento,
+			GetComponent<FoodSpriteSelector>().giveRandomFood(),
         	GetPuntoSpawn(),
 			Quaternion.identity
 		);
