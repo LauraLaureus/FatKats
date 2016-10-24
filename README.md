@@ -1,26 +1,26 @@
 # FatKats
-   Two kitties, Luffy and Pastelitio, are hungry in the streets of Japan. Take the food, hit your oponent or die. 
+Two kitties, Luffy and Pastelitio, are hungry in the streets of Japan. Take the food, hit your oponent or die. 
    
-   Local Multiplayer:
+## Local Multiplayer:
    
-   Player 1: 
+### Player 1: 
    
-   A: left
+- A: left
    
-   D: right
+- D: right
    
-   W: jump
+- W: jump
    
-   S: dash your opponent
+- S: dash your opponent
    
-   Player 2:
+### Player 2:
    
-   left arrow: left
+- left arrow: left
+  
+- right arrow: right
    
-   right arrow: right
+- up arrow: jump
    
-   up arrow: jump
+- down arrow: dash your opponent
    
-   down arrow: dash your opponent
-   
-   Granada JAM - entry
+> Granada JAM - 2016 entry
